@@ -1,0 +1,308 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <script>
+		window.onload = function () {
+
+            var degreesChart = new CanvasJS.Chart("degreesChartContainer", {
+				animationEnabled: true,
+				title: {
+					text: "Roll - Pitch - Yaw Degrees"
+				},
+				toolTip: {
+					shared: true
+				},
+				data: [{
+					type: "line",
+					name: "Roll",
+					showInLegend: true,
+					dataPoints: @Html.Raw(ViewBag.DataPoints1)
+				}, {
+					type: "line",
+					name: "Pitch",
+					showInLegend: true,
+					dataPoints: @Html.Raw(ViewBag.DataPoints2)
+				}, {
+					type: "line",
+					name: "Yaw",
+					showInLegend: true,
+					dataPoints: @Html.Raw(ViewBag.DataPoints3)
+				}]
+			});
+
+			var AltitudeChart = new CanvasJS.Chart("AltitudeChartContainer", {
+				animationEnabled: true,
+				title: {
+					text: "Altitude"
+				},
+				toolTip: {
+					shared: true
+				},
+				data: [{
+					type: "line",
+					name: "Altitude",
+					showInLegend: true,
+					dataPoints: @Html.Raw(ViewBag.DataPoints4)
+				}]
+			});
+
+			var SpeedChart = new CanvasJS.Chart("SpeedChartContainer", {
+				animationEnabled: true,
+				title: {
+					text: "Speed"
+				},
+				toolTip: {
+					shared: true
+				},
+				data: [{
+					type: "line",
+					name: "Speed",
+					showInLegend: true,
+					dataPoints: @Html.Raw(ViewBag.DataPoints5)
+				}]
+			});
+
+			var allDatasChart = new CanvasJS.Chart("AllDatasContainer", {
+				animationEnabled: true,
+				title: {
+					text: "Altitude - Speed"
+				},
+				toolTip: {
+					shared: true
+				},
+				data: [{
+					type: "line",
+					name: "Altitude",
+					showInLegend: true,
+					dataPoints: @Html.Raw(ViewBag.DataPoints4)
+				}, {
+					type: "line",
+					name: "Speed",
+					showInLegend: true,
+					dataPoints: @Html.Raw(ViewBag.DataPoints5)
+				}]
+			});
+
+			var allDatasChart2 = new CanvasJS.Chart("AllDatas2Container", {
+				animationEnabled: true,
+				title: {
+					text: "Degrees - Speed"
+				},
+				toolTip: {
+					shared: true
+				},
+				data: [{
+					type: "line",
+					name: "Speed",
+					showInLegend: true,
+					dataPoints: @Html.Raw(ViewBag.DataPoints5)
+				}, {
+					type: "line",
+					name: "Roll",
+					showInLegend: true,
+					dataPoints: @Html.Raw(ViewBag.DataPoints1)
+				}, {
+					type: "line",
+					name: "Pitch",
+					showInLegend: true,
+					dataPoints: @Html.Raw(ViewBag.DataPoints2)
+				}, {
+					type: "line",
+					name: "Yaw",
+					showInLegend: true,
+					dataPoints: @Html.Raw(ViewBag.DataPoints3)
+				}]
+			});
+
+			var allDatasChart3 = new CanvasJS.Chart("AllDatas3Container", {
+				animationEnabled: true,
+				title: {
+					text: "Degrees - Altitude"
+				},
+				toolTip: {
+					shared: true
+				},
+				data: [{
+					type: "line",
+					name: "Altitude",
+					showInLegend: true,
+					dataPoints: @Html.Raw(ViewBag.DataPoints4)
+				}, {
+					type: "line",
+					name: "Roll",
+					showInLegend: true,
+					dataPoints: @Html.Raw(ViewBag.DataPoints1)
+				}, {
+					type: "line",
+					name: "Pitch",
+					showInLegend: true,
+					dataPoints: @Html.Raw(ViewBag.DataPoints2)
+				}, {
+					type: "line",
+					name: "Yaw",
+					showInLegend: true,
+					dataPoints: @Html.Raw(ViewBag.DataPoints3)
+				}]
+			});
+
+            SpeedChart.render();
+            AltitudeChart.render();
+			degreesChart.render();
+			allDatasChart.render();
+			allDatasChart2.render();
+            allDatasChart3.render();
+		}
+
+    </script>
+
+</head>
+<body>
+
+    @*<div class="card">
+            <div class="card-header">
+                <h4 class="card-title"></h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <div id="degreesChartContainer" style="height: 370px; width: 100%;"></div>
+                </div>
+            </div>
+        </div>*@
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-chart">
+                <div class="card-header">
+                    <h5 class="card-title"></h5>
+                    <p class="card-category"></p>
+                </div>
+                <div class="card-body">
+                    <div class="chartjs-size-monitor">
+                        <div class="chartjs-size-monitor-expand">
+                            <div class="table-responsive">
+                                <div id="AltitudeChartContainer" style="height: 370px; width: 100%;"></div>
+                            </div>
+                        </div><div class="chartjs-size-monitor-shrink">
+                            <div class="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card-chart">
+                <div class="card-header">
+                    <h5 class="card-title"></h5>
+                    <p class="card-category"></p>
+                </div>
+                <div class="card-body">
+                    <div class="chartjs-size-monitor">
+                        <div class="chartjs-size-monitor-expand">
+                            <div class="table-responsive">
+                                <div id="SpeedChartContainer" style="height: 370px; width: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink">
+                            <div class="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-chart">
+                <div class="card-header">
+                    <h5 class="card-title"></h5>
+                    <p class="card-category"></p>
+                </div>
+                <div class="card-body">
+                    <div class="chartjs-size-monitor">
+                        <div class="chartjs-size-monitor-expand">
+                            <div class="table-responsive">
+                                <div id="AllDatasContainer" style="height: 370px; width: 100%;"></div>
+                            </div>
+                        </div><div class="chartjs-size-monitor-shrink">
+                            <div class="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card-chart">
+                <div class="card-header">
+                    <h5 class="card-title"></h5>
+                    <p class="card-category"></p>
+                </div>
+                <div class="card-body">
+                    <div class="chartjs-size-monitor">
+                        <div class="chartjs-size-monitor-expand">
+                            <div class="table-responsive">
+                                <div id="degreesChartContainer" style="height: 370px; width: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink">
+                            <div class="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-chart">
+                <div class="card-header">
+                    <h5 class="card-title"></h5>
+                    <p class="card-category"></p>
+                </div>
+                <div class="card-body">
+                    <div class="chartjs-size-monitor">
+                        <div class="chartjs-size-monitor-expand">
+                            <div class="table-responsive">
+                                <div id="AllDatas3Container" style="height: 370px; width: 100%;"></div>
+                            </div>
+                        </div><div class="chartjs-size-monitor-shrink">
+                            <div class="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card-chart">
+                <div class="card-header">
+                    <h5 class="card-title"></h5>
+                    <p class="card-category"></p>
+                </div>
+                <div class="card-body">
+                    <div class="chartjs-size-monitor">
+                        <div class="chartjs-size-monitor-expand">
+                            <div class="table-responsive">
+                                <div id="AllDatas2Container" style="height: 370px; width: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink">
+                            <div class="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+</body>
+</html> 

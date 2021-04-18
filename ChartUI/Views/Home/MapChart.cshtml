@@ -1,0 +1,38 @@
+﻿@model List<FlightGear>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>adddefaultpolylineHTML</title>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <style type='text/css'>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Segoe UI',Helvetica,Arial,Sans-Serif
+        }
+    </style>
+</head>
+<body>
+    <div id='printoutPanel'></div>
+
+    <div id='myMap' style='width: 100vw; height: 100vh;'></div>
+    <script type='text/javascript'>
+        function loadMapScenario() {
+            var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});
+            var center = map.getCenter();
+
+            @foreach(var item in Model){
+                <text>
+                    var polyline = new Microsoft.Maps.Polyline([
+                    new Microsoft.Maps.Location(@item.Latitude, @item.Longitude)]);
+                </text>
+            }
+            map.entities.push(polyline);
+
+        }
+    </script>
+    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=YourBingMapsKey&callback=loadMapScenario' async defer></script>
+</body>
+</html>
