@@ -35,11 +35,11 @@ namespace ChartUI.Models
 
         public void SavetoDatabase()
         {
-            string filename = @"H:\KTUN Launch Control\KTUN Launch Control\CSV\KtunLC.csv";
+            string filename = @"C:\Users\ogunb\KTUN Launch Control\KTUN Launch Control\CSV\KtunLC.csv";
 
             if (File.Exists(filename))
             {
-                using (var reader = new StreamReader(@"H:\KTUN Launch Control\KTUN Launch Control\CSV\KtunLC.csv"))
+                using (var reader = new StreamReader(@"C:\Users\ogunb\KTUN Launch Control\KTUN Launch Control\CSV\KtunLC.csv"))
                 {
                     while (!reader.EndOfStream)
                     {
@@ -62,7 +62,7 @@ namespace ChartUI.Models
                     }
 
                     reader.Close();
-                    File.Delete(@"H:\KTUN Launch Control\KTUN Launch Control\CSV\KtunLC.csv");
+                    File.Delete(@"C:\Users\ogunb\KTUN Launch Control\KTUN Launch Control\CSV\KtunLC.csv");
                 }
             }
             else
@@ -70,5 +70,26 @@ namespace ChartUI.Models
                 //File has been read already
             }
         }
+
+        public void SavetoDatabaseNew(string data)
+        {
+            var line = data;
+            var values = line.Split(',');
+
+            FlightGear gd = new FlightGear();
+            gd.Altitude = float.Parse(values[0]);
+            gd.Latitude = float.Parse(values[1]);
+            gd.Longitude = float.Parse(values[2]);
+            gd.Roll = float.Parse(values[3]);
+            gd.Pitch = float.Parse(values[4]);
+            gd.Yaw = float.Parse(values[5]);
+            gd.Speed = float.Parse(values[6]);
+            DateTime.TryParse(values[7], out dateValue);
+            gd.FlightDate = dateValue;
+
+            context.FlightGearDatas.Add(gd);
+            context.SaveChanges();
+        }
+
     }
 }

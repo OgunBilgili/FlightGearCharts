@@ -31,6 +31,12 @@ namespace ChartUI.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public void storeDataNew(string data)
+        {
+            _dataRepository.SavetoDatabaseNew(data);
+        }
+
         public ActionResult MapChart()
         {
             DateTime dateValue;
@@ -69,6 +75,7 @@ namespace ChartUI.Controllers
         }
 
         // GET
+        [HttpPost]
         public ActionResult Delete(DateTime dateTime)
         {
             _appDbContext.FlightGearDatas.RemoveRange(_appDbContext.FlightGearDatas.Where(x => x.FlightDate == dateTime));
@@ -124,7 +131,7 @@ namespace ChartUI.Controllers
             }
         }
 
-        // POST: HomeController/Delete/5
+        /* POST: HomeController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
@@ -138,5 +145,6 @@ namespace ChartUI.Controllers
                 return View();
             }
         }
+        */
     }
 }

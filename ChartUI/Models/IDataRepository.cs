@@ -11,5 +11,7 @@ namespace ChartUI.Models
         List<FlightGear> GetAllDatasAsList(DateTime dateTime);
         List<DateTime> GetDates();
         void SavetoDatabase();
+
+        void SavetoDatabaseNew(string data);
     }
 }
