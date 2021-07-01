@@ -7,17 +7,12 @@
             var degreesChart = new CanvasJS.Chart("degreesChartContainer", {
 				animationEnabled: true,
 				title: {
-					text: "Roll - Pitch - Yaw Degrees"
+					text: "Pitch - Yaw Degrees"
 				},
 				toolTip: {
 					shared: true
 				},
 				data: [{
-					type: "line",
-					name: "Roll",
-					showInLegend: true,
-					dataPoints: @Html.Raw(ViewBag.DataPoints1)
-				}, {
 					type: "line",
 					name: "Pitch",
 					showInLegend: true,
@@ -86,38 +81,33 @@
 			var allDatasChart2 = new CanvasJS.Chart("AllDatas2Container", {
 				animationEnabled: true,
 				title: {
-					text: "Degrees - Speed"
+					text: "Aircraft Roll - Pitch - Yaw"
 				},
 				toolTip: {
 					shared: true
 				},
 				data: [{
 					type: "line",
-					name: "Speed",
-					showInLegend: true,
-					dataPoints: @Html.Raw(ViewBag.DataPoints5)
-				}, {
-					type: "line",
 					name: "Roll",
 					showInLegend: true,
-					dataPoints: @Html.Raw(ViewBag.DataPoints1)
+					dataPoints: @Html.Raw(ViewBag.DataPoints6)
 				}, {
 					type: "line",
 					name: "Pitch",
 					showInLegend: true,
-					dataPoints: @Html.Raw(ViewBag.DataPoints2)
+					dataPoints: @Html.Raw(ViewBag.DataPoints7)
 				}, {
 					type: "line",
 					name: "Yaw",
 					showInLegend: true,
-					dataPoints: @Html.Raw(ViewBag.DataPoints3)
+					dataPoints: @Html.Raw(ViewBag.DataPoints8)
 				}]
 			});
 
 			var allDatasChart3 = new CanvasJS.Chart("AllDatas3Container", {
 				animationEnabled: true,
 				title: {
-					text: "Degrees - Altitude"
+					text: "Aircraft Altitude - Speed"
 				},
 				toolTip: {
 					shared: true
@@ -126,22 +116,12 @@
 					type: "line",
 					name: "Altitude",
 					showInLegend: true,
-					dataPoints: @Html.Raw(ViewBag.DataPoints4)
+					dataPoints: @Html.Raw(ViewBag.DataPoints9)
 				}, {
 					type: "line",
-					name: "Roll",
+					name: "Speed",
 					showInLegend: true,
-					dataPoints: @Html.Raw(ViewBag.DataPoints1)
-				}, {
-					type: "line",
-					name: "Pitch",
-					showInLegend: true,
-					dataPoints: @Html.Raw(ViewBag.DataPoints2)
-				}, {
-					type: "line",
-					name: "Yaw",
-					showInLegend: true,
-					dataPoints: @Html.Raw(ViewBag.DataPoints3)
+					dataPoints: @Html.Raw(ViewBag.DataPoints10)
 				}]
 			});
 

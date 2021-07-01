@@ -47,7 +47,7 @@ namespace ChartUI.Controllers
 
         public ActionResult AnyChart(DateTime dateTime)
         {
-            
+
             var FlightGearDataList = _dataRepository.GetAllDatasAsList(dateTime);
 
             List<DataPoint> dataPoints1 = new List<DataPoint>();
@@ -55,6 +55,11 @@ namespace ChartUI.Controllers
             List<DataPoint> dataPoints3 = new List<DataPoint>();
             List<DataPoint> dataPoints4 = new List<DataPoint>();
             List<DataPoint> dataPoints5 = new List<DataPoint>();
+            List<DataPoint> dataPoints6 = new List<DataPoint>();
+            List<DataPoint> dataPoints7 = new List<DataPoint>();
+            List<DataPoint> dataPoints8 = new List<DataPoint>();
+            List<DataPoint> dataPoints9 = new List<DataPoint>();
+            List<DataPoint> dataPoints10 = new List<DataPoint>();
 
             for (int x = 0; x < FlightGearDataList.Count(); x++)
             {
@@ -63,6 +68,12 @@ namespace ChartUI.Controllers
                 dataPoints3.Add(new DataPoint(x, FlightGearDataList[x].Yaw));
                 dataPoints4.Add(new DataPoint(x, FlightGearDataList[x].Altitude));
                 dataPoints5.Add(new DataPoint(x, FlightGearDataList[x].Speed));
+                dataPoints6.Add(new DataPoint(x, FlightGearDataList[x].aRoll));
+                dataPoints7.Add(new DataPoint(x, FlightGearDataList[x].aPitch));
+                dataPoints8.Add(new DataPoint(x, FlightGearDataList[x].aHeading));
+                dataPoints9.Add(new DataPoint(x, FlightGearDataList[x].aAltitude));
+                dataPoints10.Add(new DataPoint(x, FlightGearDataList[x].aSpeed));
+
             }
 
             ViewBag.DataPoints1 = JsonConvert.SerializeObject(dataPoints1);
@@ -70,6 +81,11 @@ namespace ChartUI.Controllers
             ViewBag.DataPoints3 = JsonConvert.SerializeObject(dataPoints3);
             ViewBag.DataPoints4 = JsonConvert.SerializeObject(dataPoints4);
             ViewBag.DataPoints5 = JsonConvert.SerializeObject(dataPoints5);
+            ViewBag.DataPoints6 = JsonConvert.SerializeObject(dataPoints6);
+            ViewBag.DataPoints7 = JsonConvert.SerializeObject(dataPoints7);
+            ViewBag.DataPoints8 = JsonConvert.SerializeObject(dataPoints8);
+            ViewBag.DataPoints9 = JsonConvert.SerializeObject(dataPoints9);
+            ViewBag.DataPoints10 = JsonConvert.SerializeObject(dataPoints10);
 
             return View();
         }
