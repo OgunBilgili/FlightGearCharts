@@ -48,8 +48,6 @@ namespace ChartUI.Models
 
                         FlightGear gd = new FlightGear();
                         gd.Altitude = float.Parse(values[0]);
-                        gd.Latitude = float.Parse(values[1]);
-                        gd.Longitude = float.Parse(values[2]);
                         gd.Roll = float.Parse(values[3]);
                         gd.Pitch = float.Parse(values[4]);
                         gd.Yaw = float.Parse(values[5]);
@@ -78,14 +76,17 @@ namespace ChartUI.Models
 
             FlightGear gd = new FlightGear();
             gd.Altitude = float.Parse(values[0]);
-            gd.Latitude = float.Parse(values[1]);
-            gd.Longitude = float.Parse(values[2]);
-            gd.Roll = float.Parse(values[3]);
-            gd.Pitch = float.Parse(values[4]);
-            gd.Yaw = float.Parse(values[5]);
-            gd.Speed = float.Parse(values[6]);
-            DateTime.TryParse(values[7], out dateValue);
+            gd.Roll = float.Parse(values[1]);
+            gd.Pitch = float.Parse(values[2]);
+            gd.Yaw = float.Parse(values[3]);
+            gd.Speed = float.Parse(values[4]);
+            DateTime.TryParse(values[5], out dateValue);
             gd.FlightDate = dateValue;
+            gd.aAltitude = float.Parse(values[6]);
+            gd.aRoll = float.Parse(values[7]);
+            gd.aPitch = float.Parse(values[8]);
+            gd.aHeading = float.Parse(values[9]);
+            gd.aSpeed = float.Parse(values[10]);
 
             context.FlightGearDatas.Add(gd);
             context.SaveChanges();

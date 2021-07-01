@@ -75,7 +75,7 @@ namespace ChartUI.Controllers
         }
 
         // GET
-        [HttpPost]
+        
         public ActionResult Delete(DateTime dateTime)
         {
             _appDbContext.FlightGearDatas.RemoveRange(_appDbContext.FlightGearDatas.Where(x => x.FlightDate == dateTime));

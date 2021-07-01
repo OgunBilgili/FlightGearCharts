@@ -23,12 +23,12 @@
             var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});
             var center = map.getCenter();
 
-            @foreach(var item in Model){
+            @*@foreach(var item in Model){
                 <text>
                     var polyline = new Microsoft.Maps.Polyline([
                     new Microsoft.Maps.Location(@item.Latitude, @item.Longitude)]);
                 </text>
-            }
+            }*@
             map.entities.push(polyline);
 
         }
